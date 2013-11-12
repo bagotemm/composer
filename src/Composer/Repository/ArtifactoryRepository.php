@@ -96,7 +96,7 @@ class ArtifactoryRepository extends ArrayRepository
     			$pom = simplexml_load_string($xmlFile);
     			$pom = $pom->children();
     			
-    			//Package Construction
+    			//Package construction
     			$package['name'] = $pom->artifactId->__toString();
     			$package['version'] = $pom->version->__toString();
 				$package['description'] = $pom->description->__toString();
@@ -104,7 +104,7 @@ class ArtifactoryRepository extends ArrayRepository
     					"url" => $this->url.$this->repo.substr($distUrl,0,strlen($distUrl)-3).$pom->packaging->__toString(),
     					"type" => $pom->packaging->__toString());
     		
-    			
+    			//Load package
     			parent::addPackage($loader->load($package));
     		}
     		
