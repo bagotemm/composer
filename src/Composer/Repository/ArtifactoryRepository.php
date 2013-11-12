@@ -29,8 +29,6 @@ class ArtifactoryRepository extends ArrayRepository
 
     /**
      * Initializes Artifactory repository.
-     *
-     * @param array $config package definition
      */
     public function __construct(array $config, $io)
     {
@@ -39,12 +37,10 @@ class ArtifactoryRepository extends ArrayRepository
         $this->pass = $config['pass'];
         $this->repo = $config['repo'];
         $this->io = $io;
-        $io->write( "Construction d'un repository Artifactory.");
-        //var_dump($config);
-       
     }
+    
     /**
-     * Initializes repository (reads file, or remote address).
+     * Initializes repository (read Artifactory remote folder).
      */
     protected function initialize()
     {
@@ -118,10 +114,5 @@ class ArtifactoryRepository extends ArrayRepository
     	}
     	$totalPackages = parent::getPackages();
     	curl_close($curlHandle);
-    	 
-    	 
-    	 
     }
-
-   
 }
