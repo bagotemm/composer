@@ -107,10 +107,7 @@ class ArtifactoryRepository extends ArrayRepository
     			//Load package
     			parent::addPackage($loader->load($package));
     		}
-    		
-    		
-    		
-    		
+
     	}
     	$totalPackages = parent::getPackages();
     	curl_close($curlHandle);
